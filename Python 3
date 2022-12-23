@@ -1,0 +1,33 @@
+def avg(l):
+    return str(sum(l) // len(l))
+
+def divisible(l):
+    for i in range(0, len(l)):
+        for j in range(2, 6):
+            if l[i] % j == 0:
+                print(l[i], " is divisible by ", j)
+                
+def oddEven(l):
+    for i in l:
+        if i % 2 == 0:
+            print(i," is even.")
+        else:
+            print(i," is odd.")
+
+def main():
+    l=[]
+    temp = 0
+    for i in range(5):
+        print("Please enter a number: ")
+        temp = input()
+        l.append(int(temp))
+        temp = 0
+
+    print("List average is: " + avg(l))
+    print("------------------------")
+    oddEven(l)
+    print("------------------------")
+    print("Maximum value is: ", max(l))
+    divisible(l)
+    
+main()
