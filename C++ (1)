@@ -1,0 +1,87 @@
+#include <iostream>
+using namespace std;
+
+//Caluclate the average
+double calcAverage(int array[], int size) {
+  int sum = 0;       
+  double average;          
+
+   for (int i = 0; i < size; ++i) {
+      sum += array[i];
+   }
+   average = double(sum) / size;
+   
+   return average;
+}
+
+//Divisible 
+int divisible(int array[], int size){
+    for(int i = 0; i < size; i++){
+        for(int j = 2; j < 6; j++){
+            if(array[i] % j == 0){
+                switch(j){
+                    case 2:
+                        cout<<array[i]<<" is divisible by 2"<<endl;
+                        break;
+                    case 3:
+                        cout<<array[i]<<" is divisible by 3"<<endl;
+                        break;
+                    case 4:
+                        cout<<array[i]<<" is divisible by 4"<<endl;
+                        break;
+                    case 5:
+                        cout<<array[i]<<" is divisible by 5"<<endl;
+                        break;
+                }
+            }
+        }
+    }
+    return 0;
+}
+
+//Max value
+int max(int array[], int size){
+    int temp = array[0];
+    for(int i = 1; i < size; i++){
+        if(array[i] > temp){
+            temp = array[i];
+        }
+    }
+    return temp;
+}
+
+//Odd or even function
+int oddEven(int array[], int size){
+    for(int i = 0; i < size; i++){
+        if(array[i] % 2 == 0){
+            cout<< array[i] << " is even"<<endl;
+        }else{
+            cout<< array[i] << " is odd"<<endl;
+        }
+    }
+    return 0;
+}
+
+//Main code
+int main() {
+    int a[5];
+    int temp;
+    double size;
+    
+    for(int i = 0; i < 5; i++){
+        cout<<"Please enter a number: "<<endl;
+        cin>>temp;
+        a[i] = temp;
+    }
+    size = sizeof(a) / sizeof(int);
+    
+    cout<<"------------------"<<endl;
+    cout<<"Array average is: "<< calcAverage(a, size)<<endl;
+    cout<<"------------------"<<endl;
+    cout<<oddEven(a, size)<<endl;
+    cout<<"------------------"<<endl;
+    cout<<"Maximum value is: "<<max(a, size)<<endl;
+    cout<<"------------------"<<endl;
+    cout<<divisible(a, size)<<endl;
+    return 0;
+}
