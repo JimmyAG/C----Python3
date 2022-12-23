@@ -223,8 +223,17 @@ int main() {
     }else if(choice1 > 0 and choice1 <=5){
         phase2();
         cin>>choice2;
-        userInput2(choice1, choice2);
-        cout<<"----------------"<<endl;
+        if(choice2 >= 1 and choice2 <=3){
+            userInput2(choice1, choice2);
+            cout<<"----------------"<<endl;
+        }else if(choice2 == 0){
+            Exit(choice2);
+        }else{
+            cout<<"Please enter a valid number between 1 and 3!"<<endl;
+            cout<<"Program ended!"<<endl;
+            cout<<"----------------"<<endl;
+            main();
+        }
     }else{
         cout<<"Please enter a valid number between 0 and 5!"<<endl;
         main();
