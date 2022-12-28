@@ -43,7 +43,7 @@ double mul(double x, double y, double z=0){
 //3- Division
 double Div(double x, double y, double z=0){
     double res;
-    if(z == 0){
+    if(z == 0 and y != 0){
         res =  x / y;
         cout<<"Output is: "<<res<<endl;
     }else{
