@@ -1,0 +1,176 @@
+import numpy as np
+
+#################################################
+"""/--- Exit on 0 ---/"""
+def Exit(choice):
+    if choice == 0:
+        print("Program ended!")
+
+#################################################
+"""/--- Math functions ---/"""
+
+#1- Summation
+def Sum(x, y, z=None):
+    res = 0
+    if z:
+        res = x + y + z
+        print("Output is: " + res)
+        
+    res = x + y
+    print("Output is: " + res)
+    
+#2- Multiply
+def mul(x, y, z=None):
+    res = 0
+    if z:
+        res = x * y * z
+        print("Output is: " + res)
+        
+    res = x * y
+    print("Output is: " + res)
+    
+#3- Division
+def div(x, y, z=None):
+    res = 0
+    if z or y != 0:
+        res = x / y / z
+        print("Output is: " + res)
+        
+    res = x / y
+    print("Output is: " + res)
+       
+#4- Modulus
+def mod(x, y, z=None):
+    res = 0
+    if z:
+        print("Modulus can only be calculated for two numbers")
+        
+    res = x % y
+    print("Output is: " + res)
+           
+#5- Subtraction
+def sub(x, y, z=None):
+    res = 0
+    if z:
+        res = x - y - z
+        print("Output is: " + res)
+        
+    res = x - y
+    print("Output is: " + res)
+    
+#################################################
+"""/--- Array ---/"""
+
+def getArr(choice):
+    size, temp, mul, Sum, sub, div = 0
+    l = []
+    
+    size = int(input("Please enter the length of the list: \n"))
+    print("----------------")
+    
+    for i in range(0, size):
+        temp = input("Please enter a number: \n")
+        l.append(temp)
+        temp = 0
+        
+    print("----------------")
+    print("Your list is: \n" + l)
+    print("----------------")
+    
+    if choice == 0:
+        Exit(choice)
+        
+    elif choice == 1:
+        Sum = sum(l)
+        print("The sum of the list is: "+ Sum + "\n")
+        
+    elif choice == 2:
+        mul = np.product(l)
+        print("The product of the list is: "+ mul + "\n")
+        
+    elif choice == 3:
+        div = l[0]
+        for i in l[1:]:
+            if i != 0:
+                div /= i
+                
+        print("The first number of the array will be divided by the next one and so on! \n"+"The output is: " + div + "\n")
+    elif choice == 4:
+        print("Can't produce the modulus of the array!")
+    elif choice == 5:
+        sub = l[0]
+        for i in l[1:]:
+            sub -= i
+        
+        print("Numbers will be subtracted from the first number of the array and so on!\n" + "The output is: " + sub + "\n")
+
+#################################################    
+"""/--- Driver Code ---/"""
+    
+def phase1():
+    print("Please select one of the following: \n 1- Sum \n 2- Mul \n 3- Div \n 4- Mod \n 5- Sub \n 0- Exit \n ---------------- \n")
+    
+def phase2():
+    print("Please select one of the following: \n 1- Two Numbers \n 2- Three Numbers \n 3- List (Array) \n ---------------- \n")
+    
+#################################################    
+"""/--- Get and process user Input ---/"""
+
+def userInput1(choice1, num1, num2, num3 = None):
+    if choice1 == 0:
+        Exit(choice1)
+    elif choice1 == 1:
+        Sum(num1, num2, num3)
+    elif choice1 == 2:
+        mul(num1, num2, num3)
+    elif choice1 == 3:
+        div(num1, num2, num3)
+    elif choice1 == 4:
+        mod(num1, num2, num3)
+    elif choice1 == 5:
+        sub(num1, num2, num3)
+        
+def userInput2(choice1, choice2):
+    if choice1 == 0:
+        Exit(choice1)
+    elif choice1 == 1:
+        num1 = int(input("Please enter the first number: \n"))
+        num2 = int(input("Please enter the second number: \n"))
+        print("----------------")
+        userInput1(choice1, num1, num2)
+    elif choice1 == 2:
+        num1 = int(input("Please enter the first number: \n"))
+        num2 = int(input("Please enter the second number: \n"))
+        num3 = int(input("Please enter the third number: \n"))
+        print("----------------")
+        userInput1(choice1, num1, num2, num3)
+    elif choice1 == 3:
+        getArr(choice1)
+        print("----------------")
+
+#################################################    
+"""/--- Main Program Function ---/"""        
+
+def main():
+    phase1()
+    choice1 = int(input())
+    if choice1 == 0:
+        Exit(choice1)
+    elif 0 < choice1 <= 5:
+        phase2
+        choice2 = int(input())
+        if 1 <= choice <= 3:
+            userInput2(choice1, choice2)
+            print("----------------")
+        elif choice2 == 0:
+            Exit(choice2)
+        else:
+            print("Please enter a valid number between 1 and 3! \n Program ended! \n ---------------- \n")
+            main()
+    else:
+        print("Please enter a valid number between 0 and 5! \n")
+        main()
+        
+#################################################    
+"""/--- Run ---/"""  
+main()
