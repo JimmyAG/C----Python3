@@ -14,30 +14,30 @@ def Sum(x, y, z=None):
     res = 0
     if z:
         res = x + y + z
-        print("Output is: " + res)
+        print("Output is: " + str(res))
         
     res = x + y
-    print("Output is: " + res)
+    print("Output is: " + str(res))
     
 #2- Multiply
 def mul(x, y, z=None):
     res = 0
     if z:
         res = x * y * z
-        print("Output is: " + res)
+        print("Output is: " + str(res))
         
     res = x * y
-    print("Output is: " + res)
+    print("Output is: " + str(res))
     
 #3- Division
 def div(x, y, z=None):
     res = 0
     if z or y != 0:
         res = x / y / z
-        print("Output is: " + res)
+        print("Output is: " + str(res))
         
     res = x / y
-    print("Output is: " + res)
+    print("Output is: " + str(res))
        
 #4- Modulus
 def mod(x, y, z=None):
@@ -46,23 +46,23 @@ def mod(x, y, z=None):
         print("Modulus can only be calculated for two numbers")
         
     res = x % y
-    print("Output is: " + res)
+    print("Output is: " + str(res))
            
 #5- Subtraction
 def sub(x, y, z=None):
     res = 0
     if z:
         res = x - y - z
-        print("Output is: " + res)
+        print("Output is: " + str(res))
         
     res = x - y
-    print("Output is: " + res)
+    print("Output is: " + str(res))
     
 #################################################
 """/--- Array ---/"""
 
 def getArr(choice):
-    size, temp, mul, Sum, sub, div = 0
+    size, temp, mul, Sum, sub, div = 0, 0, 0, 0, 0, 0
     l = []
     
     size = int(input("Please enter the length of the list: \n"))
@@ -82,11 +82,11 @@ def getArr(choice):
         
     elif choice == 1:
         Sum = sum(l)
-        print("The sum of the list is: "+ Sum + "\n")
+        print("The sum of the list is: "+ str(Sum) + "\n")
         
     elif choice == 2:
         mul = np.product(l)
-        print("The product of the list is: "+ mul + "\n")
+        print("The product of the list is: "+ str(mul) + "\n")
         
     elif choice == 3:
         div = l[0]
@@ -94,7 +94,7 @@ def getArr(choice):
             if i != 0:
                 div /= i
                 
-        print("The first number of the array will be divided by the next one and so on! \n"+"The output is: " + div + "\n")
+        print("The first number of the array will be divided by the next one and so on! \n"+"The output is: " + str(div) + "\n")
     elif choice == 4:
         print("Can't produce the modulus of the array!")
     elif choice == 5:
@@ -102,16 +102,16 @@ def getArr(choice):
         for i in l[1:]:
             sub -= i
         
-        print("Numbers will be subtracted from the first number of the array and so on!\n" + "The output is: " + sub + "\n")
+        print("Numbers will be subtracted from the first number of the array and so on!\n" + "The output is: " + str(sub) + "\n")
 
 #################################################    
 """/--- Driver Code ---/"""
     
 def phase1():
-    print("Please select one of the following: \n 1- Sum \n 2- Mul \n 3- Div \n 4- Mod \n 5- Sub \n 0- Exit \n ---------------- \n")
+    print("Please select one of the following: \n1- Sum \n2- Mul \n3- Div \n4- Mod \n5- Sub \n0- Exit \n---------------- \n")
     
 def phase2():
-    print("Please select one of the following: \n 1- Two Numbers \n 2- Three Numbers \n 3- List (Array) \n ---------------- \n")
+    print("Please select one of the following: \n1- Two Numbers \n2- Three Numbers \n3- List (Array) \n---------------- \n")
     
 #################################################    
 """/--- Get and process user Input ---/"""
@@ -157,9 +157,9 @@ def main():
     if choice1 == 0:
         Exit(choice1)
     elif 0 < choice1 <= 5:
-        phase2
+        phase2()
         choice2 = int(input())
-        if 1 <= choice <= 3:
+        if 1 <= choice2 <= 3:
             userInput2(choice1, choice2)
             print("----------------")
         elif choice2 == 0:
