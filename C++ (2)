@@ -1,6 +1,10 @@
 #include <iostream>
 using namespace std;
 
+
+/*This code lets you choose operations to be done on multiple inputs or arrays*/
+
+
 /////////////////////////////////////////////////
 /*--- Exit on 0 ---*/
 int Exit(int choice){
